@@ -2,6 +2,9 @@ var canvas;
 var the_watch;
 var app_count = 20;
 var the_app_list;
+var watch_size = 400;
+var row_column_count = round(Math.sqrt(app_count) - 1);
+var the_app_array = [];
 
 function random_name_gen(){
   ret_name = "";
@@ -24,8 +27,9 @@ function add_apps(){
   for (let i=0; i<app_count; i++){
     app_name = random_name_gen();
     the_app_list[app_name] = new app(app_name);
+    the_app_array.push(app_name);
   }
-  return the_app_list;
+  return [the_app_list,the_app_array];
 }
 
 
@@ -38,7 +42,7 @@ function init(){
   the_watch = new face(ww/2,wh/2);
   the_watch.insert_apps();
 
-  add_apps();
+  // add_apps();
 
 }
 
