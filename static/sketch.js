@@ -38,6 +38,13 @@ window.addEventListener('resize',resize_canvas);
 
 
 
+function mouseDragged(){
+  the_watch.dragger();
+}
+
+function mouseReleased(){
+  the_watch.releaser();
+}
 
 function init(){
   ww = windowWidth;

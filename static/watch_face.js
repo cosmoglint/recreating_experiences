@@ -4,8 +4,8 @@ function face(x_loc,y_loc,app_list){
 
   this.size = watch_size;
 
-  this.xnum = 6;
-  this.ynum = 6;
+  this.xnum = 9;
+  this.ynum = 9;
 
   this.app_list = create_arr(this.xnum,this.ynum);
 
@@ -15,6 +15,9 @@ function face(x_loc,y_loc,app_list){
   this.x_corn = this.x_loc - this.size/2 + this.padding/2;
   this.y_corn = this.y_loc - this.size/2 + this.padding/2;
 
+
+  this.orig_lefx = this.x_loc - this.app_list.length/2 * this.padding + this.padding/2;
+  this.orig_lefy = this.y_loc - this.app_list[0].length/2 * this.padding + this.padding/2;
 
   this.lefx = this.x_loc - this.app_list.length/2 * this.padding + this.padding/2;
   this.lefy = this.y_loc - this.app_list[0].length/2 * this.padding + this.padding/2;
@@ -48,4 +51,24 @@ face.prototype.add_apps = function() {
       this.app_list[i][j] = new app(i*this.padding,j*this.padding,random_name_gen());
     }
   }
+}
+
+
+face.prototype.dragger = function() {
+  d = dist(mouseX,mouseY,this.orig_lefx,this.orig_lefy);
+
+  or_vector = createVector(this.orig_lefx,this.orig_lefy);
+  mvector = createVector(mouseX,mouseY);
+
+  d_vector = p5.Vector.sub(or_vector,mvector)
+
+  this.leftx += d_vector.x;
+  this.lefty += d_vector.y;
+
+  this.show();
+}
+
+face.prototype.releaser = function(){
+  this.leftx = this.orig_lefx;
+  this.lefty = this.orig_lefy;
 }
