@@ -48,7 +48,7 @@ face.prototype.show = function () {
 face.prototype.add_apps = function() {
   for (let i=0; i<this.app_list.length; i++){
     for (let j=0; j<this.app_list[0].length; j++){
-      this.app_list[i][j] = new app(i*this.padding,j*this.padding,random_name_gen());
+      this.app_list[i][j] = new app(i*this.padding,j*this.padding,random_name_gen(),this);
     }
   }
 }
@@ -56,7 +56,7 @@ face.prototype.add_apps = function() {
 
 face.prototype.set_clicker = function(){
   this.click_loc = createVector(mouseX,mouseY);
-  console.log(this.click_loc);
+  // console.log(this.click_loc);
 }
 
 face.prototype.dragger = function() {
