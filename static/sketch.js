@@ -3,8 +3,15 @@ var the_watch;
 var app_count = 20;
 var the_app_list;
 var watch_size = 400;
-var row_column_count = round(Math.sqrt(app_count) - 1);
-var the_app_array = [];
+
+
+function create_arr(width,height){
+  arr = new Array(width);
+  for (let i=0; i<arr.length; i++){
+    arr[i] = new Array(height);
+  }
+  return arr
+}
 
 function random_name_gen(){
   ret_name = "";
@@ -15,6 +22,8 @@ function random_name_gen(){
   return ret_name;
 }
 
+
+
 function resize_canvas(){
   init();
 }
@@ -22,15 +31,6 @@ function resize_canvas(){
 window.addEventListener('resize',resize_canvas);
 
 
-function add_apps(){
-  the_app_list = new app_list();
-  for (let i=0; i<app_count; i++){
-    app_name = random_name_gen();
-    the_app_list[app_name] = new app(app_name);
-    the_app_array.push(app_name);
-  }
-  return [the_app_list,the_app_array];
-}
 
 
 
@@ -39,17 +39,26 @@ function init(){
   wh = windowHeight;
   canvas = createCanvas(ww,wh);
 
-  the_watch = new face(ww/2,wh/2);
-  the_watch.insert_apps();
 
-  // add_apps();
+
+  // for (let i=0; i<the_app_list.length; i++){
+  //   for (let j=0; j<the_app_list[0].length; j++){
+  //     the_app_list[i][j] = new app(random_name_gen());
+  //   }
+  // }
+
+
+  console.log(the_app_list);
+
+  the_watch = new face(ww/2,wh/2);
+  the_watch.add_apps();
+
 
 }
 
 function setup(){
   rectMode(CENTER);
   init();
-  console.log(the_watch.app_list);
 
   // circle(ww/2,wh/2,300);
 }
