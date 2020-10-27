@@ -27,6 +27,7 @@ function face(x_loc,y_loc,app_list){
 }
 
 face.prototype.show = function () {
+  strokeWeight(1);
   fill('red');
   rect(this.x_loc,this.y_loc,this.size,this.size,this.size/10);
   for (let i=0; i<this.app_list.length ; i++){
@@ -42,6 +43,11 @@ face.prototype.show = function () {
       this.app_list[i][j].show(this.lefx+dev+xdev,this.lefy+ydev);
     }
   }
+  // fill(rgba(255,255,255,0));
+  fill('rgba(0,0,255,0)');
+  stroke('black')
+  strokeWeight(25);
+  rect(this.x_loc,this.y_loc,this.size+15,this.size+15,this.size/10);
 }
 
 

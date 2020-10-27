@@ -17,6 +17,8 @@ function app(x_loc,y_loc,app_name,face){
 app.prototype.show = function(xdiff,ydiff){
   fill(color(150,150,255));
 
+  strokeWeight(1);
+
   var curloc_x = xdiff+this.loc_x;
   var curloc_y = ydiff+this.loc_y;
 
