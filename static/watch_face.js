@@ -3,18 +3,22 @@ function face(x_loc,y_loc,app_list){
   this.y_loc = y_loc;
 
   this.size = watch_size;
-  this.app_list = create_arr(5,5);
+  this.app_list = create_arr(9,9);
 
-  this.padding = 10;
+
+  this.x_corn = this.x_loc - this.size/2;
+  this.y_corn = this.y_loc - this.size/2;
+
+  this.padding = 50;
 
 }
 
 face.prototype.show = function () {
   fill('red');
   rect(this.x_loc,this.y_loc,this.size,this.size,this.size/10);
-  for (let i=0; i<this.app_array.length ; i++){
-    for (let j=0; j<this.app_list.lenth ; j++ ){
-      this.app_list[this.app_array[i]].show();
+  for (let i=0; i<this.app_list.length ; i++){
+    for (let j=0; j<this.app_list.length ; j++ ){
+      this.app_list[i][j].show(this.x_corn,this.y_corn);
     }
   }
 }

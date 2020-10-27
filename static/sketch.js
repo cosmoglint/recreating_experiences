@@ -48,7 +48,7 @@ function init(){
   // }
 
 
-  console.log(the_app_list);
+  // console.log(the_app_list);
 
   the_watch = new face(ww/2,wh/2);
   the_watch.add_apps();
