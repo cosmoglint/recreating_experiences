@@ -5,6 +5,10 @@ var the_app_list;
 var watch_size = 400;
 
 
+var watch_padding = 90;
+var app_size = 40;
+
+
 function create_arr(width,height){
   arr = new Array(width);
   for (let i=0; i<arr.length; i++){

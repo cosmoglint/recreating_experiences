@@ -4,7 +4,8 @@ function app(x_loc,y_loc,app_name){
   this.loc_x = x_loc;
   this.loc_y = y_loc;
   this.app_name = app_name;
-  this.size = 20;
+  // this.size = 40;
+  this.size = app_size;
 }
 
 app.prototype.show = function(xdiff,ydiff){

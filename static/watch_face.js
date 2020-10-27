@@ -3,13 +3,14 @@ function face(x_loc,y_loc,app_list){
   this.y_loc = y_loc;
 
   this.size = watch_size;
-  this.app_list = create_arr(9,9);
+  this.app_list = create_arr(5,5);
 
 
   this.x_corn = this.x_loc - this.size/2;
   this.y_corn = this.y_loc - this.size/2;
 
-  this.padding = 50;
+  // this.padding = 50;
+  this.padding = watch_padding;
 
 }
 
