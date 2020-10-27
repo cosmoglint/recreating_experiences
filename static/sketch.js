@@ -36,7 +36,9 @@ function resize_canvas(){
 window.addEventListener('resize',resize_canvas);
 
 
-
+function mousePressed(){
+  the_watch.set_clicker();
+}
 
 function mouseDragged(){
   the_watch.dragger();
@@ -75,6 +77,7 @@ function setup(){
   // circle(ww/2,wh/2,300);
 }
 function draw(){
+  background('white');
   the_watch.show();
 
 }

@@ -22,7 +22,7 @@ function face(x_loc,y_loc,app_list){
   this.lefx = this.x_loc - this.app_list.length/2 * this.padding + this.padding/2;
   this.lefy = this.y_loc - this.app_list[0].length/2 * this.padding + this.padding/2;
 
-
+  this.click_loc = createVector(this.x_loc,this.y_loc);
 
 }
 
@@ -54,21 +54,26 @@ face.prototype.add_apps = function() {
 }
 
 
+face.prototype.set_clicker = function(){
+  this.click_loc = createVector(mouseX,mouseY);
+  console.log(this.click_loc);
+}
+
 face.prototype.dragger = function() {
   d = dist(mouseX,mouseY,this.orig_lefx,this.orig_lefy);
 
-  or_vector = createVector(this.orig_lefx,this.orig_lefy);
+  or_vector = createVector(this.click_loc.x,this.click_loc.y);
   mvector = createVector(mouseX,mouseY);
 
-  d_vector = p5.Vector.sub(or_vector,mvector)
+  d_vector = p5.Vector.sub(mvector,or_vector);
 
-  this.leftx += d_vector.x;
-  this.lefty += d_vector.y;
+  this.lefx = this.orig_lefx + (d_vector.x);
+  this.lefy = this.orig_lefy + (d_vector.y);
 
   this.show();
 }
 
 face.prototype.releaser = function(){
-  this.leftx = this.orig_lefx;
-  this.lefty = this.orig_lefy;
+  this.lefx = this.orig_lefx;
+  this.lefy = this.orig_lefy;
 }
