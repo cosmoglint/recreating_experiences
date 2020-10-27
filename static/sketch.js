@@ -2,11 +2,12 @@ var canvas;
 var the_watch;
 var app_count = 20;
 var the_app_list;
-var watch_size = 400;
+var watch_size = 300;
 
 
-var watch_padding = 90;
-var app_size = 40;
+
+var app_size = 50;
+var watch_padding = app_size+10;
 
 
 function create_arr(width,height){

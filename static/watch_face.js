@@ -3,14 +3,19 @@ function face(x_loc,y_loc,app_list){
   this.y_loc = y_loc;
 
   this.size = watch_size;
-  this.app_list = create_arr(5,5);
-
-
-  this.x_corn = this.x_loc - this.size/2;
-  this.y_corn = this.y_loc - this.size/2;
+  this.app_list = create_arr(7,7);
 
   // this.padding = 50;
   this.padding = watch_padding;
+
+  this.x_corn = this.x_loc - this.size/2 + this.padding/2;
+  this.y_corn = this.y_loc - this.size/2 + this.padding/2;
+
+
+  this.lefx = this.x_loc - this.app_list.length/2 * this.padding + this.padding/2;
+  this.lefy = this.y_loc - this.app_list[0].length/2 * this.padding + this.padding/2;
+
+
 
 }
 
@@ -19,7 +24,12 @@ face.prototype.show = function () {
   rect(this.x_loc,this.y_loc,this.size,this.size,this.size/10);
   for (let i=0; i<this.app_list.length ; i++){
     for (let j=0; j<this.app_list.length ; j++ ){
-      this.app_list[i][j].show(this.x_corn,this.y_corn);
+      if (j%2 == 0){
+        this.app_list[i][j].show(this.lefx,this.lefy);
+      }
+      else {
+        this.app_list[i][j].show(this.lefx + this.padding/2,this.lefy);
+      }
     }
   }
 }
