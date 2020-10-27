@@ -1,4 +1,4 @@
-function face(x_loc,y_loc,app_list){
+function face(x_loc,y_loc){
   this.x_loc = x_loc;
   this.y_loc = y_loc;
 
