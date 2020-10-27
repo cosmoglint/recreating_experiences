@@ -1,6 +1,5 @@
 var canvas;
 var the_watch;
-var the_watch2;
 var app_count = 20;
 var the_app_list;
 var watch_size = 300;
@@ -39,17 +38,14 @@ window.addEventListener('resize',resize_canvas);
 
 function mousePressed(){
   the_watch.set_clicker();
-  the_watch2.set_clicker();
 }
 
 function mouseDragged(){
   the_watch.dragger();
-  the_watch2.dragger();
 }
 
 function mouseReleased(){
   the_watch.releaser();
-  the_watch2.releaser();
 }
 
 function init(){
@@ -68,10 +64,8 @@ function init(){
 
   // console.log(the_app_list);
 
-  the_watch = new face(ww/3,wh/2);
-  the_watch2 = new face(ww*2/3,wh/2);
+  the_watch = new face(ww/2,wh/2);
   the_watch.add_apps();
-  the_watch2.add_apps();
 
 
 }
@@ -85,6 +79,5 @@ function setup(){
 function draw(){
   background('white');
   the_watch.show();
-  the_watch2.show();
 
 }
