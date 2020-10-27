@@ -9,5 +9,6 @@ function app(x_loc,y_loc,app_name){
 }
 
 app.prototype.show = function(xdiff,ydiff){
+  fill(color(150,150,255));
   circle(xdiff+this.loc_x,ydiff+this.loc_y,this.size);
 }

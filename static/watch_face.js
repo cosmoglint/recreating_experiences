@@ -3,7 +3,11 @@ function face(x_loc,y_loc,app_list){
   this.y_loc = y_loc;
 
   this.size = watch_size;
-  this.app_list = create_arr(7,7);
+
+  this.xnum = 6;
+  this.ynum = 6;
+
+  this.app_list = create_arr(this.xnum,this.ynum);
 
   // this.padding = 50;
   this.padding = watch_padding;
@@ -23,13 +27,16 @@ face.prototype.show = function () {
   fill('red');
   rect(this.x_loc,this.y_loc,this.size,this.size,this.size/10);
   for (let i=0; i<this.app_list.length ; i++){
-    for (let j=0; j<this.app_list.length ; j++ ){
-      if (j%2 == 0){
-        this.app_list[i][j].show(this.lefx,this.lefy);
-      }
-      else {
-        this.app_list[i][j].show(this.lefx + this.padding/2,this.lefy);
-      }
+    for (let j=0; j<this.app_list[0].length ; j++ ){
+
+      // var dev = (j%2==0) ? 0 : this.padding/2;
+      var dev = 0;
+      var xdev = 0;
+      var ydev = 0;
+      xdev = (this.xnum%2==0)? -this.padding/2 : 0;
+      ydev = (this.ynum%2==0)? -this.padding/2 : 0;
+
+      this.app_list[i][j].show(this.lefx+dev+xdev,this.lefy+ydev);
     }
   }
 }
